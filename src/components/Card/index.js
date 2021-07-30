@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import PRODUCT_LIST from "../../utils/constants/PRODUCT_LIST";
 import "./style.css";
 
 class Card extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { title, brand, price } = this.props;
+
     return (
-      <div className="productList-view">
-        {PRODUCT_LIST.map(item => (
-          <div>{`title: ${item.title} brand: ${item.brand} price: ${item.price}`}</div>
-        ))}
+      <div>
+        <h1>{title}</h1>
+        <h2>{brand}</h2>
+        <h2>{price}</h2>
       </div>
     );
   }
