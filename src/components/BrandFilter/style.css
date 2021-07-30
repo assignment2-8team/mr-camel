@@ -1,0 +1,17 @@
+.brand-filter {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.brand-filter-title {
+  font-weight: bold;
+}
+
+.brand-filter-name {
+  margin-left: 8px;
+}
