@@ -31,7 +31,6 @@ class Product extends Component {
       addApathy(currentProductId);
     }
     const newProductInfo = this.getRandomProduct(currentProductId);
-    //console.log(newProductInfo);
     addInquiryHistory(newProductInfo);
     this.setState(prevState => ({ currentProductInfo: newProductInfo }));
   };
@@ -42,8 +41,10 @@ class Product extends Component {
         <Header />
         <div className="product-page-content">
           <Card productInfo={this.state.currentProductInfo} />
-          <RandomButton isApathyButton={false} handleOnClick={this.handleOnClickRandomButton} />
-          <RandomButton isApathyButton={true} handleOnClick={this.handleOnClickRandomButton} />
+          <div className="product-page-random-button-wrapper">
+            <RandomButton isApathyButton={false} handleOnClick={this.handleOnClickRandomButton} />
+            <RandomButton isApathyButton={true} handleOnClick={this.handleOnClickRandomButton} />
+          </div>
         </div>
       </div>
     );

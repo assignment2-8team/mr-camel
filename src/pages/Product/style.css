@@ -10,3 +10,9 @@
   align-items: center;
   flex-direction: column;
 }
+
+.product-page-random-button-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
