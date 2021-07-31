@@ -7,6 +7,7 @@ import addApathy from "utils/manageLocalStorage/addApathy";
 import addInquiryHistory from "utils/manageLocalStorage/addInquiryHistory";
 import RandomButton from "components/RandomButton";
 import Card from "components/Card";
+import "./style.css";
 
 class Product extends Component {
   constructor(props) {

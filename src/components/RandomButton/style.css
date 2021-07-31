@@ -1,6 +1,7 @@
 .randomButton {
     margin-top: 100px;
     height: 2em;
+    width: 7em;
     font-size: 2em;
     background-color: skyblue;
 }
