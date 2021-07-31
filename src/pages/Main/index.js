@@ -18,6 +18,8 @@ class Main extends React.Component {
   };
 
   render() {
+    const history = window.localStorage.getItem("inquiryHistory");
+
     return (
       <div className="main-page">
         <Header />

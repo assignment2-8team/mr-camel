@@ -16,8 +16,8 @@ class RecentListPage extends React.Component {
         return map;
       }, new Map()),
       isHidden: false,
-      inquiryHistoryList: window.localStorage.getItem("inquiryHistory").items,
-      apathyList: window.localStorage.getItem("inquiryHistory").recent,
+      inquiryHistory: window.localStorage.getItem("inquiryHistory"),
+      apathyList: window.localStorage.getItem("apathy"),
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleInterestCheckboxChange = this.handleInterestCheckboxChange.bind(this);
@@ -34,7 +34,9 @@ class RecentListPage extends React.Component {
   }
 
   render() {
-    const filteredBrandList = Object.values(this.state.inquiryHistoryList).filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : [])).includes(product.brand));
+    console.log(this.state.apathyList);
+    const parsedObject = JSON.parse(this.state.inquiryHistory);
+    const filteredBrandList = Object.values(parsedObject.items).filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : [])).includes(product.brand));
     const interestedList = filteredBrandList.filter(e => this.state.apathyList.includes(e.id) === 0);
 
     return (
