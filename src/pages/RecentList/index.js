@@ -42,7 +42,12 @@ class RecentListPage extends React.Component {
   }
 
   render() {
-    const filteredBrandList = this.state.inquiryHistoryList.filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : [])).includes(product.brand));
+    const filteredBrandList = Array.from(this.state.checkedBrand.values()).some(e => e === true) ? 
+        this.state.inquiryHistoryList
+        .filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : []))
+        .includes(product.brand))
+        :
+        this.state.inquiryHistoryList
 
     return (
       <>
