@@ -1,4 +1,4 @@
-import React, { Component, useImperativeHandle } from "react";
+import React, { Component } from "react";
 import "./style.css";
 
 class Card extends Component {
@@ -11,10 +11,7 @@ class Card extends Component {
     const { title, brand, price } = productInfo;
 
     return (
-      <div
-      className='productCard'
-      onClick={ handleOnClick ? () => handleOnClick(productInfo) : null }
-      >
+      <div className="productCard" onClick={handleOnClick ? () => handleOnClick(productInfo) : null}>
         <h1>{title}</h1>
         <h2>{brand}</h2>
         <h2>{price}</h2>

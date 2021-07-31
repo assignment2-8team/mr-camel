@@ -15,7 +15,6 @@ const emptyInfo = {title: "상품이 존재하지 않습니다"}
 class Product extends Component {
   constructor(props) {
       super(props);
-
       const currentProductInfo = JSON.parse(window.sessionStorage.getItem("currentProductInfo"));
       this.state = {
           currentProductInfo: currentProductInfo ? currentProductInfo : emptyInfo,

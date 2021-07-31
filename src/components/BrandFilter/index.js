@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./style.css";
-import BRAND_LIST from "../../utils/constants/BRAND_LIST";
+import BRAND_LIST from "utils/constants/BRAND_LIST";
 
 class BrandFilter extends Component {
   constructor(props) {
