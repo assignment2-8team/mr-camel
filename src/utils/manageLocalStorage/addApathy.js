@@ -1,6 +1,6 @@
 const addApathy = (productId) => {
-    const apathy = window.localStorage.getItem("apathy");
-    window.localStorage.setItem("apathy", [ ...apathy,  productId]);
+    const apathy = JSON.parse(window.localStorage.getItem("apathy"));
+    window.localStorage.setItem("apathy", JSON.stringify([ ...apathy,  productId]));
 }
 
 export default addApathy;
