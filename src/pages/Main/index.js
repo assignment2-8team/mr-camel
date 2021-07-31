@@ -12,9 +12,9 @@ class Main extends React.Component {
 
     handleOnClick = (productInfo) => {
         addInquiryHistory(productInfo);
+        window.sessionStorage.setItem("currentProductInfo", JSON.stringify(productInfo));
         this.props.history.push({
             pathname: '/product',
-            state: {productInfo: {...productInfo}}
         })
     }
 
