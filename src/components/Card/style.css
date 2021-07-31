@@ -1,4 +1,5 @@
 .productCard {
+    flex: none;
     width: 400px;
     background-color: skyblue;
     border: 1px solid black;

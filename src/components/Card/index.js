@@ -8,14 +8,13 @@ class Card extends Component {
 
   render() {
     const { productInfo, handleOnClick } = this.props;
-    const { title, brand, price, id } = productInfo;
+    const { title, brand, price } = productInfo;
 
     return (
       <div className="productCard" onClick={handleOnClick ? () => handleOnClick(productInfo) : null}>
         <h1>{title}</h1>
         <h2>{brand}</h2>
         <h2>{price}</h2>
-        {id}
       </div>
     );
   }
