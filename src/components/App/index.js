@@ -1,12 +1,16 @@
+import { Component } from 'react';
 import "./style.css";
 import UserRouter from "../../router";
 
-function App() {
-  return (
-    <>
-      <UserRouter />
-    </>
-  );
+
+class App extends Component {
+    render() {
+        return (
+          <>
+            <UserRouter />
+          </>
+        );
+    }
 }
 
 export default App;
