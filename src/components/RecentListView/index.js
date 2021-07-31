@@ -2,19 +2,12 @@ import { Component } from "react";
 import { withRouter } from "react-router";
 import Card from "components/Card";
 import "./style.css";
-import addInquiryHistory from "utils/manageLocalStorage/addInquiryHistory";
-import manageHistoryPush from "utils/manageHistory/manageHistory";
+import handleOnClickProduct from "utils/handleOnClick/handleOnClickProduct";
 
 class RecentListView extends Component {
   constructor(props) {
     super(props);
-    this.handleOnClick = this.handleOnClick.bind(this);
   }
-
-  handleOnClick = productInfo => {
-    addInquiryHistory(productInfo);
-    manageHistoryPush(productInfo, this.props.history);
-  };
 
   render() {
     const { sortMethod, brandList } = this.props;
@@ -28,7 +21,7 @@ class RecentListView extends Component {
     return (
       <div className="recentList-view">
         {brandList.map(item => (
-          <Card key={item.id} productInfo={item} handleOnClick={this.handleOnClick} />
+          <Card key={item.id} productInfo={item} handleOnClick={(product)=>handleOnClickProduct(product, this.props.history)} />
         ))}
       </div>
     );
