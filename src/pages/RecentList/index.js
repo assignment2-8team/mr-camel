@@ -16,8 +16,8 @@ class RecentListPage extends React.Component {
         return map;
       }, new Map()),
       isHidden: false,
-      inquiryHistory: window.localStorage.getItem("inquiryHistory"),
-      apathyList: window.localStorage.getItem("apathy"),
+      inquiryHistoryList: Object.values(JSON.parse(window.localStorage.getItem("inquiryHistory")).items),
+      apathyList: JSON.parse(window.localStorage.getItem("apathy")),
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleInterestCheckboxChange = this.handleInterestCheckboxChange.bind(this);
@@ -34,10 +34,7 @@ class RecentListPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.apathyList);
-    const parsedObject = JSON.parse(this.state.inquiryHistory);
-    const filteredBrandList = Object.values(parsedObject.items).filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : [])).includes(product.brand));
-    const interestedList = filteredBrandList.filter(e => this.state.apathyList.includes(e.id) === 0);
+    const filteredBrandList = this.state.inquiryHistoryList.filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : [])).includes(product.brand));
 
     return (
       <>
@@ -45,7 +42,7 @@ class RecentListPage extends React.Component {
         <div className="recentList-filters">
           <BrandFilter checkedBrand={this.state.checkedBrand} handleCheckboxChange={this.handleCheckboxChange} />
           <InterestFilter handleInterestCheckboxChange={this.handleInterestCheckboxChange} />
-          <RecentListView brandList={this.state.isHidden ? interestedList : filteredBrandList} />
+          <RecentListView brandList={this.state.isHidden ? filteredBrandList.filter(e => this.state.apathyList.indexOf(e.id) === -1) : filteredBrandList} />
         </div>
       </>
     );
