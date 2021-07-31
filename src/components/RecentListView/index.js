@@ -2,17 +2,19 @@ import { Component } from "react";
 import { withRouter } from "react-router";
 import Card from "components/Card";
 import "./style.css";
+import addInquiryHistory from "utils/manageLocalStorage/addInquiryHistory";
+import manageHistoryPush from "utils/manageHistory/manageHistory";
 
 class RecentListView extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  handleClick(product) {
-    console.log(product);
-    this.props.history.push({ pathname: "/product", state: { currentProductInfo: product } });
-  }
+  handleOnClick = productInfo => {
+    addInquiryHistory(productInfo);
+    manageHistoryPush(productInfo, this.props.history);
+  };
 
   render() {
     const { brandList } = this.props;
@@ -23,9 +25,7 @@ class RecentListView extends Component {
       <div className="recentList-view">
         <div>선택팝업</div>
         {brandList.map(item => (
-          <div class="recentList-card-wrapper" onClick={this.handleClick(item)}>
-            <Card key={item.id} title={item.title} brand={item.brand} price={item.price} />
-          </div>
+          <Card key={item.id} productInfo={item} handleOnClick={this.handleOnClick} />
         ))}
       </div>
     );

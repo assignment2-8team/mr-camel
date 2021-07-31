@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { withRouter } from "react-router";
-import Header from "../../components/Header";
+import Header from "components/Header";
 import PRODUCT_LIST from "utils/constants/PRODUCT_LIST";
 import checkForApathy from "utils/checkProduct/checkForApathy";
 import addApathy from "utils/manageLocalStorage/addApathy";
@@ -14,7 +14,6 @@ class Product extends Component {
     this.state = {
       currentProductInfo: this.props.location.state.productInfo,
     };
-    console.log(this.state);
   }
 
   getRandomProduct = currentProductId => {
@@ -31,7 +30,7 @@ class Product extends Component {
       addApathy(currentProductId);
     }
     const newProductInfo = this.getRandomProduct(currentProductId);
-    console.log(newProductInfo);
+    //console.log(newProductInfo);
     addInquiryHistory(newProductInfo);
     this.setState(prevState => ({ currentProductInfo: newProductInfo }));
   };

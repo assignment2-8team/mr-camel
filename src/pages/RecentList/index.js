@@ -1,12 +1,11 @@
 import React from "react";
 import "./style.css";
 
-import BrandFilter from "../../components/BrandFilter";
-import InterestFilter from "../../components/InterestFilter";
-import RecentListView from "../../components/RecentListView";
-import Header from "../../components/Header";
-import PRODUCT_LIST from "../../utils/constants/PRODUCT_LIST";
-import BRAND_LIST from "../../utils/constants/BRAND_LIST";
+import BrandFilter from "components/BrandFilter";
+import InterestFilter from "components/InterestFilter";
+import RecentListView from "components/RecentListView";
+import Header from "components/Header";
+import BRAND_LIST from "utils/constants/BRAND_LIST";
 
 class RecentListPage extends React.Component {
   constructor(props) {
@@ -17,7 +16,8 @@ class RecentListPage extends React.Component {
         return map;
       }, new Map()),
       isHidden: false,
-      inquiryHistoryList: JSON.parse(window.localStorage.getItem("inquiryHistory")),
+      inquiryHistoryList: window.localStorage.getItem("inquiryHistory").items,
+      apathyList: window.localStorage.getItem("inquiryHistory").recent,
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleInterestCheckboxChange = this.handleInterestCheckboxChange.bind(this);
@@ -34,8 +34,8 @@ class RecentListPage extends React.Component {
   }
 
   render() {
-    const filteredBrandList = this.state.inquiryHistoryList.filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : [])).includes(product.brand));
-    //console.log(this.state.inquiryHistoryList);
+    const filteredBrandList = Object.values(this.state.inquiryHistoryList).filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : [])).includes(product.brand));
+    const interestedList = filteredBrandList.filter(e => this.state.apathyList.includes(e.id) === 0);
 
     return (
       <>
@@ -43,7 +43,7 @@ class RecentListPage extends React.Component {
         <div className="recentList-filters">
           <BrandFilter checkedBrand={this.state.checkedBrand} handleCheckboxChange={this.handleCheckboxChange} />
           <InterestFilter handleInterestCheckboxChange={this.handleInterestCheckboxChange} />
-          <RecentListView brandList={filteredBrandList} />
+          <RecentListView brandList={this.state.isHidden ? interestedList : filteredBrandList} />
         </div>
       </>
     );
