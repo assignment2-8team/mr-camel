@@ -11,13 +11,10 @@ class Card extends Component {
     const { title, brand, price } = productInfo;
 
     return (
-      <div
-      className='productCard'
-      onClick={ handleOnClick ? () => handleOnClick(productInfo) : null }
-      >
-        <h1>{title}</h1>
-        <h2>{brand}</h2>
-        <h2>{price}</h2>
+      <div className="productCard" onClick={handleOnClick ? () => handleOnClick(productInfo) : null}>
+        <div className="card-title">{title}</div>
+        <div className="card-brand">Brand: {brand}</div>
+        <div className="card-price">Price: {price}원</div>
       </div>
     );
   }
