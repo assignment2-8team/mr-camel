@@ -1,8 +1,8 @@
 const manageHistoryPush = (productInfo, history) => {
-  history.push({
-    pathname: "/product",
-    state: { productInfo: { ...productInfo } },
-  });
+    window.sessionStorage.setItem("currentProductInfo", JSON.stringify(productInfo));
+    history.push({
+        pathname: "/product",
+    });
 };
 
 export default manageHistoryPush;
