@@ -10,3 +10,10 @@
   align-items: center;
   flex-direction: column;
 }
+
+.button-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}

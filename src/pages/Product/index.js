@@ -48,8 +48,10 @@ class Product extends Component {
         <Header />
         <div className="product-page-content">
             <Card productInfo={this.state.currentProductInfo}/>
-            <RandomButton isApathyButton={false} handleOnClick={this.handleOnClickRandomButton}/>
-            <RandomButton isApathyButton={true} handleOnClick={this.handleOnClickRandomButton}/>
+            <div className="button-wrap">
+                <RandomButton isApathyButton={false} handleOnClick={this.handleOnClickRandomButton}/>
+                <RandomButton isApathyButton={true} handleOnClick={this.handleOnClickRandomButton}/>
+            </div>
         </div>
       </div>
     );
