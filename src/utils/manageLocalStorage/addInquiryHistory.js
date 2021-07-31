@@ -1,8 +1,13 @@
 const addInquiryHistory = (productInfo) => {
-    const inquiryHistory = window.localStorage.getItem("inquiryHistory");
+    let inquiryHistory = JSON.parse(window.localStorage.getItem("inquiryHistory"));
     const productId = productInfo.id;
-    inquiryHistory[productId] = productInfo;
-    window.localStorage.setItem("InquiryHistory", inquiryHistory);
+    if (inquiryHistory.hasOwnProperty(productId)) {
+        inquiryHistory.recent.remove(productId);
+        inquiryHistory.recent.unshift(productId);
+    }
+    else 
+        inquiryHistory[productId] = productInfo;
+    window.localStorage.setItem("InquiryHistory", JSON.stringify(inquiryHistory));
 }
 
 export default addInquiryHistory;
