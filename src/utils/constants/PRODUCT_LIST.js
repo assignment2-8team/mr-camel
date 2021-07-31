@@ -101,6 +101,6 @@ const PRODUCT_LIST = [
   { title: "스톤아일랜드 나일론메탈 셔츠 18ss 정품m사이즈", brand: "스톤아일랜드", price: 390000 },
 ];
 
-PRODUCT_LIST.map((product, index) => (product["id"] = index + 1));
+PRODUCT_LIST.forEach((product, index) => (product["id"] = index + 1));
 
 export default PRODUCT_LIST;
