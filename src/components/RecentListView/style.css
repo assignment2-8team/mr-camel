@@ -1,0 +1,9 @@
+.recentList-view {
+  width: 80%;
+  display: flex;
+  border: 1px solid lightgray;
+  padding: 15px 20px;
+  margin-top: 40px;
+  background-color: #fff;
+  flex-wrap: wrap;
+}
