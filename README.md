@@ -44,5 +44,3 @@ https://assignment2-8team.github.io/mr-camel
   - utils / constansts / BRAND_LIST, PRODUCT_LIST 작성
   - utils / manageHistory / manageHistory.js 작성
   - 담당 부분 css 작성
-
-

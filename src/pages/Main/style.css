@@ -19,7 +19,8 @@
 }
 
 .all-product-render {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
 }
