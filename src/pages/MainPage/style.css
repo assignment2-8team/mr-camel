@@ -12,14 +12,8 @@
 .fullList-view {
   width: 80%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   border: 1px solid lightgray;
   padding: 15px 20px;
   background-color: #fff;
-}
-
-.all-product-render {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 }

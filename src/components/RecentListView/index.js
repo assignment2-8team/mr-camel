@@ -17,6 +17,8 @@ class RecentListView extends Component {
   render() {
     const { brandList } = this.props;
 
+    if (!brandList) return null;
+
     return (
       <div className="recentList-view">
         <div>선택팝업</div>

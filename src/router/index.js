@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Main from "../pages/Main";
-import Product from "../pages/Product";
-import RecentList from "../pages/RecentList";
+import Main from "../pages/MainPage";
+import Product from "../pages/ProductPage";
+import RecentList from "../pages/RecentListPage";
 
 function UserRouter() {
   return (
