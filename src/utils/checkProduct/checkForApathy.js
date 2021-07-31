@@ -1,5 +1,5 @@
 const checkForApathy = (currentProductId) => {
-    const notInterestedProducts = window.localStorage.getItem("apathy");
+    const notInterestedProducts = JSON.parse(window.localStorage.getItem("apathy"));
     return notInterestedProducts.indexOf(currentProductId) !== -1 ? true : false    
 }
 

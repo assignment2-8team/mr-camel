@@ -24,7 +24,7 @@ class Product extends Component {
     getRandomProduct = (currentProductId) => {
         while (true) {
             let newProductId = Math.floor(Math.random() * (PRODUCT_LIST.length + 1))
-            if (newProductId === 0 || newProductId === currentProductId || checkForApathy(currentProductId))
+            if (newProductId === 0 || newProductId === currentProductId || checkForApathy(newProductId))
                 continue;
             return PRODUCT_LIST.find((e) => e.id === newProductId);
         }
@@ -37,7 +37,6 @@ class Product extends Component {
         }
         const newProductInfo = this.getRandomProduct(currentProductId);
         window.sessionStorage.setItem("currentProductInfo", JSON.stringify(newProductInfo));
-        console.log(newProductInfo);
         addInquiryHistory(newProductInfo);
         this.setState(prevState => ({currentProductInfo: newProductInfo}));
     }

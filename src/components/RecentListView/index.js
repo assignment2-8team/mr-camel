@@ -15,7 +15,15 @@ class RecentListView extends Component {
     if (!brandList) return null;
 
     if (sortMethod === "price") {
-        brandList.sort((x, y) => {return x.price - y.price})
+        let sortedBrandList = [...brandList];
+        sortedBrandList.sort((x, y) => {return x.price - y.price});
+        return (
+            <div className="recentList-view">
+              {sortedBrandList.map(item => (
+                <Card key={item.id} productInfo={item} handleOnClick={(product)=>handleOnClickProduct(product, this.props.history)} />
+              ))}
+            </div>
+        );
     }
 
     return (
