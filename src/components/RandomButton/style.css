@@ -1,9 +1,11 @@
 .randomButton {
     margin-top: 100px;
-    height: 2em;
-    width: 7em;
-    font-size: 1.5em;
-    background-color: #252831;
-    border-radius: 1em;
-    color: #fff;
+    height: 2.5em;
+    width: 8em;
+    font-size: 1.3em;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(18, 26, 29);
+    border-radius: 20px;
+    cursor: pointer;
 }

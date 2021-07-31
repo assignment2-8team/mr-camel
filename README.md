@@ -2,7 +2,6 @@
 
 
 ## 1. 구현 사항 
--------------------
 - 상품 상세 페이지(/product)
   - 상품상세 조회 시 이력데이터 누적하고, 동일 상품 조회 시 최신 데이터로 갱신
   - '랜덤상품 조회' 클릭 시 현 상품을 제외하고 랜덤 로드
@@ -19,10 +18,8 @@
 
 
 ## 2. 설치 및 시작하는 법
-----------------
 이 프로젝트는 Create React App으로 생성되었습니다.
 
-This project was bootstrapped with Create React App.
 실행 가능한 스크립트
 npm i
 프로젝트에 필요한 npm packages, node_modules 다운로드
@@ -36,17 +33,16 @@ npm run build
 
 
 ## 3. 배포 주소
-------------------
-
+https://assignment2-8team.github.io/mr-camel
 
 
 ## 4. 업무 분배
----------------
 - 서희영 
   - pages 구조 및 router 작성
   - pages / RecentListPage 작성
   - components / Header, BrandFilter, InterestFilter 컴포넌트(체크박스), RecentListView 작성
   - utils / constansts / BRAND_LIST, PRODUCT_LIST 작성
   - utils / manageHistory / manageHistory.js 작성
+  - 담당 부분 css 작성
 
 
