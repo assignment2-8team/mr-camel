@@ -1,13 +1,10 @@
-import React from "react";
-import Product from "../../pages/Product";
-import Card from "../Card/index";
 import "./style.css";
+import UserRouter from "../../router";
 
 function App() {
   return (
     <>
-      <Product />
-      <Card />
+      <UserRouter />
     </>
   );
 }

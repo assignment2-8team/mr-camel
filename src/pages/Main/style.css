@@ -1,0 +1,19 @@
+.main-page {
+  width: 100%;
+  height: 100%;
+}
+
+.main-page-content {
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.fullList-view {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  padding: 15px 20px;
+  background-color: #fff;
+}

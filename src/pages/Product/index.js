@@ -1,28 +1,20 @@
-import React, { Component } from "react";
-import Card from "../../components/Card";
+import { Component } from "react";
+import { withRouter } from "react-router";
+import Header from "../../components/Header";
 
 class Product extends Component {
-  // test object
-  state = {
-    draws: {
-      title: "중고 나이키 테아 흰검 245 30000원",
-      brand: "나이키",
-      price: 30000,
-    },
-  };
-
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    console.log(id);
+  }
   render() {
     return (
-      <div className="Product">
-        <h1>Product Page</h1>
-        <Card
-          title={this.state.draws.title}
-          brand={this.state.draws.brand}
-          price={this.state.draws.price}
-        />
+      <div className="product-page">
+        <Header />
+        <div className="product-page-content">Product Page</div>
       </div>
     );
   }
 }
 
-export default Product;
+export default withRouter(Product);
