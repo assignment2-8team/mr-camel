@@ -33,7 +33,7 @@ npm run build
 
 
 ## 3. 배포 주소
-https://assignment2-8team.github.io/mr-camel
+https://mr-camel.herokuapp.com/
 
 
 ## 4. 업무 분배
