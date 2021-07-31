@@ -1,0 +1,7 @@
+.productCard {
+    width: 400px;
+    background-color: skyblue;
+    border: 1px solid black;
+    margin: 1em;
+    cursor: pointer;
+}
