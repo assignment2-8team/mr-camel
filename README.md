@@ -1,7 +1,11 @@
 # 프리온보딩 Assignment 2 - [미스터 카멜]
 
+## 1. 배포 주소
+https://mr-camel.herokuapp.com/
 
-## 1. 구현 사항 
+<br>
+
+## 2. 구현 사항 
 - 상품 상세 페이지(/product)
   - 상품상세 조회 시 이력데이터 누적하고, 동일 상품 조회 시 최신 데이터로 갱신
   - '랜덤상품 조회' 클릭 시 현 상품을 제외하고 랜덤 로드
@@ -17,7 +21,27 @@
 
 <br>
 
-## 2. 설치 및 시작하는 법
+## 3. 기능 동작 영상
+ - **페이지 구조**  
+  
+   ![페이지구조](https://user-images.githubusercontent.com/67793530/127752703-13f9e895-8765-4971-9db8-a8fb52c37ae4.gif)
+ 
+ - **랜덤 버튼**  
+ 
+    ![랜덤버튼](https://user-images.githubusercontent.com/67793530/127752733-ed788c3f-4e9e-4d52-97fc-50f0ec17ada6.gif)
+
+ - **최근 이력 페이지**  
+ 
+    ![최근페이지](https://user-images.githubusercontent.com/67793530/127752741-d983cbc2-697d-40aa-bea1-abf504bd0d77.gif)
+
+ - **관심없는 상품 클릭 핸들 상세**  
+ 
+    ![관심없음_핸들](https://user-images.githubusercontent.com/67793530/127752748-c0bfd453-c7a1-42b8-a99d-7646345fa46d.gif)
+    ![관심없음_핸들2](https://user-images.githubusercontent.com/67793530/127752747-7fe2ec0f-bd4a-47a9-9a08-e5322726ba7e.gif)
+  
+ <br>
+ 
+## 4. 설치 및 시작하는 법
 이 프로젝트는 Create React App으로 생성되었습니다.  
 
 
@@ -34,12 +58,7 @@
 
 <br>
 
-## 3. 배포 주소
-https://mr-camel.herokuapp.com/
-
-<br>
-
-## 4. 업무 분배
+## 5. 업무 분배
 - **서희영**
   - pages 구조 및 router 작성
   - pages / RecentListPage 작성
