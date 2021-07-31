@@ -1,34 +1,28 @@
 import React from "react";
 import "./style.css";
-import Header from "../../components/Header";
-import Card from 'components/Card';
-import PRODUCT_LIST from 'utils/constants/PRODUCT_LIST'; 
-import addInquiryHistory from 'utils/manageLocalStorage/addInquiryHistory';
+import Header from "components/Header";
+import Card from "components/Card";
+import PRODUCT_LIST from "utils/constants/PRODUCT_LIST";
+import handleOnClickProduct from "utils/handleOnClick/handleOnClickProduct";
 
 class Main extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    handleOnClick = (productInfo) => {
-        addInquiryHistory(productInfo);
-        this.props.history.push({
-            pathname: '/product',
-            state: {productInfo: {...productInfo}}
-        })
-    }
+  constructor(props) {
+    super(props);
+  }
 
   render() {
+    const history = window.localStorage.getItem("inquiryHistory");
+
     return (
       <div className="main-page">
         <Header />
         <div className="main-page-content">
           <div className="fullList-view">
-              <div className="all-product-render">
-                {PRODUCT_LIST.map((e) => 
-                    <Card productInfo={e}  handleOnClick={this.handleOnClick}/>
-                )}
-              </div>
+            <div className="all-product-render">
+              {PRODUCT_LIST.map(e => (
+                <Card productInfo={e} handleOnClick={(product)=>handleOnClickProduct(product, this.props.history)} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

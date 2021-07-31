@@ -6,6 +6,7 @@
   margin: 1em;
   padding: 10px;
   cursor: pointer;
+  flex: none;
 }
 
 .card-title {

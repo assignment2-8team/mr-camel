@@ -7,20 +7,24 @@ import addApathy from "utils/manageLocalStorage/addApathy";
 import addInquiryHistory from "utils/manageLocalStorage/addInquiryHistory";
 import RandomButton from "components/RandomButton";
 import Card from "components/Card";
+import "./style.css";
+
+
+const emptyInfo = {title: "상품이 존재하지 않습니다"}
 
 class Product extends Component {
   constructor(props) {
       super(props);
+      const currentProductInfo = JSON.parse(window.sessionStorage.getItem("currentProductInfo"));
       this.state = {
-          currentProductInfo: this.props.location.state.productInfo,
+          currentProductInfo: currentProductInfo ? currentProductInfo : emptyInfo,
       };
-      console.log(this.state);
   }
   
     getRandomProduct = (currentProductId) => {
         while (true) {
             let newProductId = Math.floor(Math.random() * (PRODUCT_LIST.length + 1))
-            if (newProductId === 0 || newProductId === currentProductId || checkForApathy(currentProductId))
+            if (newProductId === 0 || newProductId === currentProductId || checkForApathy(newProductId))
                 continue;
             return PRODUCT_LIST.find((e) => e.id === newProductId);
         }
@@ -32,7 +36,7 @@ class Product extends Component {
             addApathy(currentProductId);
         }
         const newProductInfo = this.getRandomProduct(currentProductId);
-        console.log(newProductInfo);
+        window.sessionStorage.setItem("currentProductInfo", JSON.stringify(newProductInfo));
         addInquiryHistory(newProductInfo);
         this.setState(prevState => ({currentProductInfo: newProductInfo}));
     }
@@ -43,8 +47,10 @@ class Product extends Component {
         <Header />
         <div className="product-page-content">
             <Card productInfo={this.state.currentProductInfo}/>
-            <RandomButton isApathyButton={false} handleOnClick={this.handleOnClickRandomButton}/>
-            <RandomButton isApathyButton={true} handleOnClick={this.handleOnClickRandomButton}/>
+            <div className="button-wrap">
+                <RandomButton isApathyButton={false} handleOnClick={this.handleOnClickRandomButton}/>
+                <RandomButton isApathyButton={true} handleOnClick={this.handleOnClickRandomButton}/>
+            </div>
         </div>
       </div>
     );
