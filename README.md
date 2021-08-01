@@ -1,7 +1,7 @@
 # 프리온보딩 Assignment 2 - [미스터 카멜]
 
 ## 1. 배포 주소
-https://mr-camel.herokuapp.com/
+https://mr-camel8.herokuapp.com/
 
 <br>
 
@@ -61,12 +61,16 @@ https://mr-camel.herokuapp.com/
 ## 5. 업무 분배
 - **서희영**
   - pages 구조 및 router 작성
-  - pages / RecentListPage 작성
-  - components / Header, BrandFilter, InterestFilter 컴포넌트(체크박스), RecentListView 작성
-  - utils / constansts / BRAND_LIST, PRODUCT_LIST 작성
-  - utils / manageHistory / manageHistoryPush.js 작성
-  - 담당 부분 css 작성
-
+  - 상품 전체 리스트 및 브랜드 리스트 상수로 관리
+  - history push 관련 자주 쓰는 함수 utils로 구현
+  - 최근조회 이력 페이지 로직 구현
+  - recentList에서 브랜드 필터, 관심없는 상품 숨기기 필터 구현
+  - 상세
+    ```
+    components/ Header, BrandFilter, InterestFilter 컴포넌트(체크박스), RecentListView
+    utils / constansts / BRAND_LIST, PRODUCT_LIST
+    utils / manageHistory / manageHistoryPush.js
+    ```
 - **박민혁**
   - components / Card 작성
   - 담당 부분 & 기타 css 작성
