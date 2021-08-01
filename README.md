@@ -65,11 +65,12 @@ https://mr-camel8.herokuapp.com/
   - history push 관련 자주 쓰는 함수 utils로 구현
   - 최근조회 이력 페이지 로직 구현
   - recentList에서 브랜드 필터, 관심없는 상품 숨기기 필터 구현
+  - package 파일 정리 및 배포
   - 상세
     ```
     components/ Header, BrandFilter, InterestFilter 컴포넌트(체크박스), RecentListView
-    utils / constansts / BRAND_LIST, PRODUCT_LIST
-    utils / manageHistory / manageHistoryPush.js
+    pages/ RecentList
+    utils/ constansts, manageHistory
     ```
 - **박민혁**
   - components / Card 작성
