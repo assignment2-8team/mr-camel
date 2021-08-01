@@ -8,10 +8,12 @@ import SortMethodBar from "components/SortMethodBar";
 import Header from "components/Header";
 import BRAND_LIST from "utils/constants/BRAND_LIST";
 
-class RecentListPage extends React.Component {
+class RecentList extends React.Component {
   constructor(props) {
     super(props);
-    const parsedInquiryHistory= JSON.parse(window.localStorage.getItem("inquiryHistory"));
+    const parsedInquiryHistory = JSON.parse(
+      window.localStorage.getItem("inquiryHistory")
+    );
     this.state = {
       checkedBrand: BRAND_LIST.reduce((map, brand) => {
         map.set(brand, false);
@@ -19,18 +21,23 @@ class RecentListPage extends React.Component {
       }, new Map()),
       isHidden: false,
       sortMethod: "recent",
-      inquiryHistoryList: parsedInquiryHistory.recent.map((e) => parsedInquiryHistory.items[e]),
+      inquiryHistoryList: parsedInquiryHistory.recent.map(
+        (e) => parsedInquiryHistory.items[e]
+      ),
       apathyList: JSON.parse(window.localStorage.getItem("apathy")),
     };
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.handleInterestCheckboxChange = this.handleInterestCheckboxChange.bind(this);
+    this.handleInterestCheckboxChange =
+      this.handleInterestCheckboxChange.bind(this);
     this.handleMethodChange = this.handleMethodChange.bind(this);
   }
 
   handleCheckboxChange(event) {
     const brand = event.target.name;
     const isChecked = event.target.checked;
-    this.setState(prev => ({ checkedBrand: prev.checkedBrand.set(brand, isChecked) }));
+    this.setState((prev) => ({
+      checkedBrand: prev.checkedBrand.set(brand, isChecked),
+    }));
   }
 
   handleInterestCheckboxChange(event) {
@@ -38,29 +45,49 @@ class RecentListPage extends React.Component {
   }
 
   handleMethodChange(e) {
-      this.setState(prevState => ({ ...prevState, sortMethod: e.target.value }))
+    this.setState((prevState) => ({
+      ...prevState,
+      sortMethod: e.target.value,
+    }));
   }
 
   render() {
-    const filteredBrandList = Array.from(this.state.checkedBrand.values()).some(e => e === true) ? 
-        this.state.inquiryHistoryList
-        .filter(product => [...this.state.checkedBrand].flatMap(e => (e[1] === true ? [e[0]] : []))
-        .includes(product.brand))
-        :
-        this.state.inquiryHistoryList
+    const filteredBrandList = Array.from(this.state.checkedBrand.values()).some(
+      (e) => e === true
+    )
+      ? this.state.inquiryHistoryList.filter((product) =>
+          [...this.state.checkedBrand]
+            .flatMap((e) => (e[1] === true ? [e[0]] : []))
+            .includes(product.brand)
+        )
+      : this.state.inquiryHistoryList;
 
     return (
       <>
         <Header />
         <div className="recentList-filters">
-          <BrandFilter checkedBrand={this.state.checkedBrand} handleCheckboxChange={this.handleCheckboxChange} />
-          <SortMethodBar handleMethodChange={this.handleMethodChange}/>
-          <InterestFilter handleInterestCheckboxChange={this.handleInterestCheckboxChange} />
-          <RecentListView sortMethod={this.state.sortMethod} brandList={this.state.isHidden ? filteredBrandList.filter(e => this.state.apathyList.indexOf(e.id) === -1) : filteredBrandList} />
+          <BrandFilter
+            checkedBrand={this.state.checkedBrand}
+            handleCheckboxChange={this.handleCheckboxChange}
+          />
+          <SortMethodBar handleMethodChange={this.handleMethodChange} />
+          <InterestFilter
+            handleInterestCheckboxChange={this.handleInterestCheckboxChange}
+          />
+          <RecentListView
+            sortMethod={this.state.sortMethod}
+            brandList={
+              this.state.isHidden
+                ? filteredBrandList.filter(
+                    (e) => this.state.apathyList.indexOf(e.id) === -1
+                  )
+                : filteredBrandList
+            }
+          />
         </div>
       </>
     );
   }
 }
 
-export default RecentListPage;
+export default RecentList;

@@ -11,16 +11,19 @@ class Main extends React.Component {
   }
 
   render() {
-    const history = window.localStorage.getItem("inquiryHistory");
-
     return (
       <div className="main-page">
         <Header />
         <div className="main-page-content">
           <div className="fullList-view">
             <div className="all-product-render">
-              {PRODUCT_LIST.map(e => (
-                <Card productInfo={e} handleOnClick={(product)=>handleOnClickProduct(product, this.props.history)} />
+              {PRODUCT_LIST.map((e) => (
+                <Card
+                  productInfo={e}
+                  handleOnClick={(product) =>
+                    handleOnClickProduct(product, this.props.history)
+                  }
+                />
               ))}
             </div>
           </div>
