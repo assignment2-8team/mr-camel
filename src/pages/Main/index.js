@@ -6,10 +6,6 @@ import PRODUCT_LIST from "utils/constants/PRODUCT_LIST";
 import handleOnClickProduct from "utils/handleOnClick/handleOnClickProduct";
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="main-page">

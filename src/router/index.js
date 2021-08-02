@@ -2,19 +2,22 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Main from "pages/Main";
 import Product from "pages/Product";
 import RecentList from "pages/RecentList";
+import { Component } from "react";
 
-function UserRouter() {
-  return (
-    <div className="app">
-      <Router>
-        <Switch>
-          <Route path="/" exact component={Main} />
-          <Route path="/recentList" exact component={RecentList} />
-          <Route path="/product" exact component={Product} />
-        </Switch>
-      </Router>
-    </div>
-  );
+class UserRouter extends Component {
+  render() {
+    return (
+      <div className="app">
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Main} />
+            <Route path="/recentList" exact component={RecentList} />
+            <Route path="/product" exact component={Product} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default UserRouter;
